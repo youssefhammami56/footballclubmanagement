@@ -1,0 +1,91 @@
+{% include "nav.html" %}
+
+{% comment %} <html>
+<head>
+    <title>Add Competition</title>
+</head>
+<body>
+    <h1>Add Competition</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Competition</button>
+    </form>
+</body>
+</html>  {% endcomment %}
+
+{% block content %}
+<style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+  
+    .login-form {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 100px;
+      padding: 20px;
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    .login-form h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .login-form label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  
+    .login-form input[type="text"],
+    .login-form input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  
+    .login-form button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  
+    .login-form button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <div class="login-form">
+    <h1>Add Competition</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div>
+        <label for="{{ form.name.id_for_label }}">Name:</label>
+        {{ form.name }}
+      </div>
+      <div>
+        <label for="{{ form.date.id_for_label }}">Date:</label>
+        {{ form.date }}
+      </div>
+      <div>
+        <label for="{{ form.location.id_for_label }}">Location:</label>
+        {{ form.location }}
+      </div>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+{% endblock %}
+
+
+

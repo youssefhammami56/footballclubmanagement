@@ -1,0 +1,82 @@
+{% include "nav.html" %}
+
+{% comment %} <h1>Join Player</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Join</button>
+</form> {% endcomment %}
+<style>
+    /* CSS styling for form */
+    body {
+        background-color: #000000;
+        color: #ffffff;
+      }
+    .join-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    .join-form h1 {
+      margin-bottom: 20px;
+    }
+  
+    .join-form label {
+      font-weight: bold;
+    }
+  
+    .join-form input[type="text"],
+    .join-form select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  
+    .join-form button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  
+    .join-form button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  
+  <div class="join-form">
+    <h1>Join Player</h1>
+  
+    <form method="post">
+      {% csrf_token %}
+      <div>
+        <label for="id_name">Name:</label>
+        {{ form.name }}
+      </div>
+      <div>
+        <label for="id_age">Position</label>
+        {{ form.position }}
+      </div>
+      <div>
+        <label for="id_position">nationality:</label>
+        {{ form.nationality }}
+      </div>
+      <div>
+        <label for="id_team">birth_date</label>
+        {{ form.birth_date }}
+      </div>
+      <button type="submit">Join</button>
+    </form>
+  </div>
+  

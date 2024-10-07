@@ -1,0 +1,19 @@
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Notification</title>
+</head>
+<body>
+    <h1>Delete Notification</h1>
+    <p>Are you sure you want to delete the notification "{{ notification.title }}"?</p>
+    
+    <form method="POST" action="{% url 'delete_notification' notification.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+    
+    <a href="{% url 'notification' %}">Cancel</a>
+</body>
+</html>

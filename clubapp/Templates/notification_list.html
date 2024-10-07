@@ -1,0 +1,62 @@
+{% extends 'nav.html' %}
+{% comment %} {% extends 'nav.html' %}
+{% block content %}
+  <h1>Notifications</h1>
+  {% if notifications %}
+    <ul>
+      {% for notification in notifications %}
+        <li>{{ notification.title }} - {{ notification.content }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No notifications available.</p>
+  {% endif %}
+{% endblock %} {% endcomment %}
+
+
+{% block content %}
+<style>
+  /* CSS styling for notifications */
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .notification-card {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .notification-card h3 {
+    margin: 0;
+    color: #333;
+  }
+
+  .notification-card p {
+    margin: 5px 0;
+    color: #777;
+  }
+</style>
+
+<h1>Notifications</h1>
+
+{% if notifications %}
+<div class="notification-list">
+  {% for notification in notifications %}
+  <div class="notification-card">
+    <h3>{{ notification.title }}</h3>
+    <p>{{ notification.content }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p>No notifications available.</p>
+{% endif %}
+{% endblock %}

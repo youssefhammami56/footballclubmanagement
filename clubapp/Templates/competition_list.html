@@ -1,0 +1,92 @@
+{% extends 'nav.html' %}
+{% comment %} {% extends 'nav.html' %}
+
+{% block content %}
+  <h1>Competitions</h1>
+  {% if competitions %}
+    <ul>
+      {% for competition in competitions %}
+        <li>{{ competition.name }} - {{ competition.date }} - {{ competition.location }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No competitions available.</p>
+  {% endif %}
+{% endblock %} {% endcomment %}
+
+{% comment %} 
+{% block content %}
+<style>
+  /* CSS styling for competition list */
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .competition-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .competition-list li {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+</style>
+
+<h1>Competitions</h1>
+{% if competitions %}
+  <ul class="competition-list">
+    {% for competition in competitions %}
+      <li>
+        <strong>Name:</strong> {{ competition.name }}<br>
+        <strong>Date:</strong> {{ competition.date }}<br>
+        <strong>Location:</strong> {{ competition.location }}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No competitions available.</p>
+{% endif %}
+{% endblock %} {% endcomment %}
+
+{% block content %}
+<style>
+  /* CSS styling for competition list */
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .competition-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .competition-list li {
+    background-color: #222222;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+</style>
+
+<h1>Competitions</h1>
+{% if competitions %}
+  <ul class="competition-list">
+    {% for competition in competitions %}
+      <li>
+        <strong>Name:</strong> {{ competition.name }}<br>
+        <strong>Date:</strong> {{ competition.date }}<br>
+        <strong>Location:</strong> {{ competition.location }}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No competitions available.</p>
+{% endif %}
+{% endblock %}

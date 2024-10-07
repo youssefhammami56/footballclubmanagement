@@ -1,0 +1,90 @@
+{% extends 'nav.html' %}
+
+{% comment %} {% block content %}
+  <div style="background-color: black; color: white;">
+    <div style="width: 300px; margin: 0 auto; margin-top: 100px; padding: 20px; background-color: #111; border: 1px solid #333; border-radius: 5px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+      <h1 style="text-align: center; margin-bottom: 20px;">Add Notification</h1>
+      <form method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 10px;">
+          <label for="{{ form.title.id_for_label }}" style="display: block; font-weight: bold;">Title:</label>
+          {{ form.title }}
+        </div>
+        <div style="margin-bottom: 10px;">
+          <label for="{{ form.content.id_for_label }}" style="display: block; font-weight: bold;">Content:</label>
+          {{ form.content }}
+        </div>
+        <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 3px; cursor: pointer;">Add</button>
+      </form>
+    </div>
+  </div>
+{% endblock %} {% endcomment %}
+
+{% block content %}
+<style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+  
+    .login-form {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 100px;
+      padding: 20px;
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    .login-form h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .login-form label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  
+    .login-form input[type="text"],
+    .login-form input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  
+    .login-form button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  
+    .login-form button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <div class="login-form">
+    <h1>Add Notification</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div>
+        <label for="{{ form.title.id_for_label }}">title:</label>
+        {{ form.title }}
+      </div>
+      <div>
+        <label for="{{ form.content.id_for_label }}">content:</label>
+        {{ form.content }}
+      <button type="submit">Add</button>
+    </form>
+  </div>
+{% endblock %}
+

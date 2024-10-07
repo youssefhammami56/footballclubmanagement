@@ -1,0 +1,270 @@
+{% include "nav.html" %}
+{% comment %} {% include "nav.html" %}
+
+{% block content %}
+<style>
+  /* CSS styling for home page */
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .hero-section {
+    background-image: url("path/to/hero-image.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .team-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .team-card {
+    width: 300px;
+    margin: 20px;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    background-color: #333333;
+    text-align: center;
+  }
+
+  .team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .team-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .team-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .team-card p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .about-section {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .about-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .about-section p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .contact-section {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .contact-section p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+</style>
+
+<section class="hero-section">
+  <div class="container">
+    <h1>Welcome to our Football Club!</h1>
+    <p>We are dedicated to providing a great football experience.</p>
+  </div>
+</section>
+
+<section class="team-section">
+  <div class="container">
+    {% for team in teams %}
+    <div class="team-card">
+      <img src="path/to/{{ team.name|lower }}.jpg" alt="{{ team.name }}">
+      <h3>{{ team.name }}</h3>
+      <p>Coach: {{ team.coach }}</p>
+      <p>Stadium: {{ team.stadium }}</p>
+      <p>Players: {{ team.players.count }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="container">
+    <h2>About Us</h2>
+    <p>we are founded by youssef hammemy in last day before he valid this project we hope that his proffesor understand his situation and give him a good grade.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>For any inquiries, please email us at contact@example.com or call us at +123456789.</p>
+  </div>
+</section>
+
+{% endblock %} {% endcomment %}
+
+
+{% block content %}
+<style>
+    /* CSS styling for home page */
+    body {
+      background-color: #000000;
+      color: #ffffff;
+    }
+  
+    .hero-section {
+      background-image: url("path/to/hero-image.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  
+    .hero-section h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  
+    .team-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+  
+    .team-card {
+      width: 300px;
+      margin: 20px;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+      background-color: #333333;
+      text-align: center;
+    }
+  
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    }
+  
+    .team-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+  
+    .team-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  
+    .team-card p {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+  
+    .about-section {
+      margin-top: 50px;
+      text-align: center;
+    }
+  
+    .about-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+  
+    .about-section p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  
+    .contact-section {
+      margin-top: 50px;
+      text-align: center;
+    }
+  
+    .contact-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+  
+    .contact-section p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  </style>
+
+<section class="hero-section">
+  <div class="container">
+    <h1>Welcome to our Football Club!</h1>
+    <p>We are dedicated to providing a great football experience.</p>
+  </div>
+</section>
+
+<section class="team-section">
+  <div class="container">
+    {% for team in teams %}
+    <div class="team-card">
+      <h3>{{ team.name|lower }}</h3>
+      <p>Coach: {{ team.coach }}</p>
+      <p>Stadium: {{ team.stadium }}</p>
+      <p>Players: {{ team.players.count }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="container">
+    <h2>About Us</h2>
+   <p> we are founded by youssef hammemy in the night before he validate this project we hope that his proffesor understand his situation and give him a good grade</p>  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>For any inquiries, please email us at contact@example.com or call us at +123456789.</p>
+  </div>
+</section>
+
+{% endblock %}
+

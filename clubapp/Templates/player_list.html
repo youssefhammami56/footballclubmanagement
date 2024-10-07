@@ -1,0 +1,111 @@
+{% extends 'nav.html' %}
+
+{% comment %} {% extends 'nav.html' %}
+{% comment %} {% extends 'nav.html' %}
+{% block content %}
+  <h1>players list:</h1>
+  {% if memberships %}
+    <ul>
+      {% for membership in memberships %}
+      <p><strong>Player:</strong> {{ membership.player }}</p>
+      <p><strong>Team:</strong> {{ membership.team }}</p>
+      <p><strong>Position:</strong> {{ membership.position }}</p>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No player found</p>
+  {% endif %}
+{% endblock %} {% endcomment %}
+
+{% comment %} 
+{% block content %}
+<style>
+  /* CSS styling for players list */
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .players-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .player-card {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .player-card p {
+    margin: 5px 0;
+  }
+</style>
+
+<h1>Players List:</h1>
+
+{% if memberships %}
+<div class="players-list">
+  {% for membership in memberships %}
+  <div class="player-card">
+    <p><strong>Player:</strong> {{ membership.player }}</p>
+    <p><strong>Team:</strong> {{ membership.team }}</p>
+    <p><strong>Position:</strong> {{ membership.position }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p>No players found</p>
+{% endif %}
+{% endblock %} {% endcomment %}
+
+{% block content %}
+<style>
+  /* CSS styling for players list */
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .players-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .player-card {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .player-card p {
+    margin: 5px 0;
+  }
+</style>
+
+<h1>Players List:</h1>
+
+{% if memberships %}
+  {% regroup memberships by team as team_list %}
+  {% for team in team_list %}
+    <h2>{{ team.grouper }}</h2>
+    <div class="players-list">
+      {% for membership in team.list %}
+        <div class="player-card">
+          <p><strong>Player:</strong> {{ membership.player }}</p>
+          <p><strong>Team:</strong> {{ membership.team }}</p>
+          <p><strong>Position:</strong> {{ membership.position }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No players found</p>
+{% endif %}
+{% endblock %}
